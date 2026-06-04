@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // Replace with your dedicated Harbor Server IP address
+        // Replace with your actual Harbor Server Public IP
         HARBOR_REGISTRY = "35.154.27.201" 
         PROJECT_NAME    = "sandbox"
         IMAGE_NAME      = "my-test-app"
@@ -12,7 +12,6 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // This step automatically checks out whichever GitHub repo is configured in the UI
                 checkout scm
                 echo 'Source code successfully retrieved from GitHub.'
             }
@@ -21,7 +20,6 @@ pipeline {
         stage('Kaniko Build & Push') {
             steps {
                 echo "Spinning up isolated Kaniko container..."
-                
                 sh """
                 docker run --rm \
                   -v \${WORKSPACE}:/workspace \
