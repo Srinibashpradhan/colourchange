@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Replace with your dedicated Harbor Server IP address
-        HARBOR_REGISTRY = "YOUR_HARBOR_SERVER_IP" 
+        HARBOR_REGISTRY = "35.154.27.201" 
         PROJECT_NAME    = "sandbox"
         IMAGE_NAME      = "my-test-app"
         IMAGE_TAG       = "latest"
